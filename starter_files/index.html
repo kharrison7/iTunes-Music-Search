@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>iTunes Music Search</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<!-- This holds all the items on the page. -->
+  <div class="container">
+    <!-- This makes the header. -->
+    <header>
+      <h1>Really Awesome Music Site</h1>
+    </header>
+
+    <!-- This makes the music player at the top. -->
+    <section class="player">
+      <audio class="music-player" controls="controls" src=""></audio>
+    </section>
+
+    <!-- This holds the search and submit button. -->
+    <section class="search">
+           <form class="search-form">
+               <div id="text_box">
+               <label for="name">Search Criteria:</label>
+               <input type="text" id="search_items" placeholder="Search" name="name" required>
+               <input type="button" onclick="getSearch()" value="Submit">
+               <br>
+           </form>
+    </section>
+
+    <!-- This holds the results. -->
+    <section class="results">
+
+       <p id="fill0"></p><span id="slot0"></span>
+       <p id="fill1"></p><span id="slot1"></span>
+       <p id="fill2"></p><span id="slot2"></span>
+       <p id="fill3"></p><span id="slot3"></span>
+       <p id="fill4"></p><span id="slot4"></span>
+       <p id="fill5"></p><span id="slot5"></span>
+       <p id="fill6"></p><span id="slot6"></span>
+       <p id="fill7"></p><span id="slot7"></span>
+       <p id="fill8"></p><span id="slot8"></span>
+       <p id="fill9"></p><span id="slot9"></span>
+
+    </section>
+
+<!-- This is the end of the div container -->
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
