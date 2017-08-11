@@ -84,7 +84,8 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
-
+            image_Thumb.addEventListener('click', play_Music);
+            image_Thumb.setAttribute("id", "result" + i);
             console.log(`music preview link: ${result.previewUrl}`);
 
 
@@ -95,8 +96,19 @@ fetch(url)
         // This plays the first song in the array.
         // aud[0].play();
         let play_Song = document.getElementById('music_Here');
-        play_Song.src=aud[0].src;
+        play_Song.src=aud[1].src;
         play_Song.load();
+
+
+      // This sends the song to the audio element to be played.
+      function play_Music(){
+          console.log("play_Music Clicked: " + this.id);
+          console.log("aud_Number: " + this.id.slice(-1));
+          let aud_Number = this.id.slice(-1);
+          let play_Song = document.getElementById('music_Here');
+          play_Song.src=aud[aud_Number].src;
+          play_Song.load();
+        }
 
    })
    .catch(function(err) {
