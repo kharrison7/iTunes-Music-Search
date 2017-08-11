@@ -15,12 +15,21 @@ console.log("JS On");
 // This obtains info form the search form and sends it to a function to fetch the data.
 function getSearch(){
   console.log("get_Search Running");
-  let search_input = document.getElementById("search_items").value;
-  console.log(`search_input: ` + search_input);
+  let raw_search_input = document.getElementById("search_items").value;
+  console.log(`search_input: ` + raw_search_input);
+
+  let space_Count = raw_search_input.split(" ").length-1
+  console.log(`There are ${space_Count} spaces in raw_search_input`);
+
+let refined_search_input = '';
+for(i=0; i < space_Count; i++){
+refined_search_input = raw_search_input.replace(" ", "+");
+}
 
 
 let x = 'https://itunes.apple.com/search?term=';
-let y = x + search_input;
+let z = "&entity=song";
+let y = x + refined_search_input + z;
 fetchGet(y);
 console.log(`search_url: ` + y);
 
@@ -60,7 +69,7 @@ fetch(url)
             // console.log("Image: " + result.thumbnail);
 
             // This puts in 'No Image Found' if the image is absent.
-            let a = result.artworkUrl60;
+            let a = result.artworkUrl100;
             if( a === '' ){
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }

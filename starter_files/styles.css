@@ -3,8 +3,8 @@ body {
 }
 
 p {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   background-size: cover;
   border: 1pt solid red;
 }
