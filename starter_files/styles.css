@@ -8,3 +8,8 @@ p {
   background-size: cover;
   border: 1pt solid red;
 }
+
+.slot_Class{
+  margin: 10pt;
+  border: 1pt solid green;
+}

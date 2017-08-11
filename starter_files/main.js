@@ -12,6 +12,11 @@
 // My Code
 console.log("JS On");
 
+// This controls the number of results.
+let result_Num = 3;
+// This keeps track of the number of searches.
+let search_Count = 0;
+
 // This obtains info form the search form and sends it to a function to fetch the data.
 function getSearch(){
   // console.log("get_Search Running");
@@ -49,10 +54,6 @@ console.log("\n\r");
 console.log("New Search");
 console.log(`search_url: ` + y);
 
-
-
-
-
 // This fetches the information using the url obtained above and returns that data to the browser.
 function fetchGet(url){
 fetch(url)
@@ -72,9 +73,10 @@ fetch(url)
         let aud = [];
 
         // This goes through the results and lists the first 3.
-        for (let i = 0; i < 3; i++){
+        for (let i = 0; i < result_Num; i++){
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
+            console.log("1: " + image_Thumb);
             let slot = document.getElementById('slot' +i);
             slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
 
@@ -84,21 +86,21 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
-            image_Thumb.addEventListener('click', play_Music);
-            image_Thumb.setAttribute("id", "result" + i);
-            console.log(`music preview link: ${result.previewUrl}`);
 
+              image_Thumb.addEventListener('click', play_Music);
+              // image_Thumb.setAttribute("id", "result" + i);
+
+            console.log(`music preview link: ${result.previewUrl}`);
 
             // This does audio stuff.
             aud[i] = new Audio(result.previewUrl);
-
             }
-        // This plays the first song in the array.
-        // aud[0].play();
-        let play_Song = document.getElementById('music_Here');
-        play_Song.src=aud[1].src;
-        play_Song.load();
 
+
+        // This sends the first song returned before any song is clicked.
+        let play_Song = document.getElementById('music_Here');
+        play_Song.src=aud[0].src;
+        play_Song.load();
 
       // This sends the song to the audio element to be played.
       function play_Music(){
@@ -109,7 +111,7 @@ fetch(url)
           play_Song.src=aud[aud_Number].src;
           play_Song.load();
         }
-
+      search_Count++;
    })
    .catch(function(err) {
     console.log("Fetch Error: ", err);
