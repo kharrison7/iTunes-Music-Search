@@ -19,7 +19,7 @@ function getSearch(){
   console.log(`search_input: ` + search_input);
 
 
-let x = 'https://itunes.apple.com/search?q=';
+let x = 'https://itunes.apple.com/search?term=';
 let y = x + search_input;
 fetchGet(y);
 console.log(`search_url: ` + y);
@@ -40,34 +40,37 @@ fetch(url)
       else{
         console.log('fetch successfully.');
       }
+
+
+
+
       // Examine the text in the response
       response.json().then(function(data) {
         // console.log("Data First Result: " + data.results[0].title);
 
-        // This goes through the results and lists the first 10.
-        for (let i = 0; i < 10; i++){
+        console.log(`Data ${data.results[0].artistName}`);
+
+        // This goes through the results and lists the first 3.
+        for (let i = 0; i < 3; i++){
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
-            slot.innerHTML = result.title + "\nIngredients: " + result.ingredients + `\nLink: <a>${result.href}</a>`;
-            console.log("href: " + result.href);
+            slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
+            console.log("href: " + result.artworkUrl60);
             // console.log("Image: " + result.thumbnail);
 
             // This puts in 'No Image Found' if the image is absent.
-            let a = result.thumbnail;
+            let a = result.artworkUrl60;
             if( a === '' ){
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
+
+
+
+            console.log(`music preview link: ${result.previewUrl}`);
             }
-// This may eventually do something.
-// let fill = `
-// <p>${data.title}</p>
-// <br>
-// <p>Results: ${data.results}</p>
-// `;
-// let text_Result = document.getElementById('all_left_items');
-// text_Result.innerHTML = fill;
+
 
    })
    .catch(function(err) {
