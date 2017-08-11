@@ -14,22 +14,30 @@ console.log("JS On");
 
 // This obtains info form the search form and sends it to a function to fetch the data.
 function getSearch(){
-  console.log("get_Search Running");
+  // console.log("get_Search Running");
+  // This collects raw input from the submission field.
   let raw_search_input = document.getElementById("search_items").value;
-  console.log(`search_input: ` + raw_search_input);
+  // console.log(`search_input: ` + raw_search_input);
 
+  // This calculates the number of spaces inside the raw_search_input.
   let space_Count = raw_search_input.split(" ").length-1
-  console.log(`There are ${space_Count} spaces in raw_search_input`);
+  // console.log(`There are ${space_Count} spaces in raw_search_input`);
 
-let refined_search_input = '';
+// This removes all spaces and replaces them with '+' within refined_search_input[refined_search_input.length-1]
+let refined_search_input = [];
 for(i=0; i < space_Count; i++){
-refined_search_input = raw_search_input.replace(" ", "+");
+    if( i === 0 ){
+    refined_search_input[i] = raw_search_input.replace(" ", "+");
+    }
+    else{
+    refined_search_input[i] = refined_search_input[i-1].replace(" ", "+");
+    }
 }
 
-
+// This creates a url to be a fetch target.
 let x = 'https://itunes.apple.com/search?term=';
 let z = "&entity=song";
-let y = x + refined_search_input + z;
+let y = x + refined_search_input[space_Count-1] + z;
 fetchGet(y);
 console.log(`search_url: ` + y);
 
@@ -37,6 +45,7 @@ console.log(`search_url: ` + y);
 
 
 
+// This fetches the information using the url obtained above and returns that data to the browser.
 function fetchGet(url){
 fetch(url)
   .then(
@@ -51,14 +60,9 @@ fetch(url)
       }
 
 
-
-
-      // Examine the text in the response
+      // This puts the various data on the browser page.
       response.json().then(function(data) {
-        // console.log("Data First Result: " + data.results[0].title);
-
-        console.log(`Data ${data.results[0].artistName}`);
-
+        // console.log(`Data ${data.results[0].artistName}`);
         // This goes through the results and lists the first 3.
         for (let i = 0; i < 3; i++){
             let result = data.results[i];
@@ -66,7 +70,6 @@ fetch(url)
             let slot = document.getElementById('slot' +i);
             slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
             console.log("href: " + result.artworkUrl60);
-            // console.log("Image: " + result.thumbnail);
 
             // This puts in 'No Image Found' if the image is absent.
             let a = result.artworkUrl100;
@@ -74,8 +77,6 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
-
-
 
             console.log(`music preview link: ${result.previewUrl}`);
             }
