@@ -45,6 +45,8 @@ let x = 'https://itunes.apple.com/search?term=';
 let z = "&entity=song";
 let y = x + refined_search_input[space_Count-1] + z;
 fetchGet(y);
+console.log("\n\r");
+console.log("New Search");
 console.log(`search_url: ` + y);
 
 
@@ -64,12 +66,8 @@ fetch(url)
       else{
         console.log('fetch successfully.');
       }
-
-
       // This puts the various data on the browser page.
       response.json().then(function(data) {
-        // console.log(`Data ${data.results[0].artistName}`);
-
         // This makes an array to fill with music.
         let aud = [];
 
@@ -96,11 +94,9 @@ fetch(url)
             }
         // This plays the first song in the array.
         // aud[0].play();
-
-
-
-
-
+        let play_Song = document.getElementById('music_Here');
+        play_Song.src=aud[0].src;
+        play_Song.load();
 
    })
    .catch(function(err) {
