@@ -25,6 +25,7 @@ function getSearch(){
 
 // This removes all spaces and replaces them with '+' within refined_search_input[refined_search_input.length-1]
 let refined_search_input = [];
+if (space_Count > 0){
 for(i=0; i < space_Count; i++){
     if( i === 0 ){
     refined_search_input[i] = raw_search_input.replace(" ", "+");
@@ -32,6 +33,11 @@ for(i=0; i < space_Count; i++){
     else{
     refined_search_input[i] = refined_search_input[i-1].replace(" ", "+");
     }
+}
+}
+else{
+  space_Count = 1;
+  refined_search_input[0] = raw_search_input;
 }
 
 // This creates a url to be a fetch target.
@@ -63,13 +69,16 @@ fetch(url)
       // This puts the various data on the browser page.
       response.json().then(function(data) {
         // console.log(`Data ${data.results[0].artistName}`);
+
+        // This makes an array to fill with music.
+        let aud = [];
+
         // This goes through the results and lists the first 3.
         for (let i = 0; i < 3; i++){
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
             slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
-            console.log("href: " + result.artworkUrl60);
 
             // This puts in 'No Image Found' if the image is absent.
             let a = result.artworkUrl100;
@@ -79,7 +88,18 @@ fetch(url)
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
 
             console.log(`music preview link: ${result.previewUrl}`);
+
+
+            // This does audio stuff.
+            aud[i] = new Audio(result.previewUrl);
+
             }
+        // This plays the first song in the array.
+        // aud[0].play();
+
+
+
+
 
 
    })
