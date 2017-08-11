@@ -13,7 +13,7 @@
 console.log("JS On");
 
 // This controls the number of results.
-let result_Num = 3;
+let result_Num = 10;
 // This keeps track of the number of searches.
 let search_Count = 0;
 
