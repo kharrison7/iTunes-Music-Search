@@ -16,6 +16,8 @@
     <section class="player">
       <audio id="music_Here" class="music-player" controls="controls" src=""></audio>
     </section>
+    <br>
+    <hr />
 
     <!-- This holds the search and submit button. -->
     <section class="search">
@@ -23,7 +25,7 @@
                <div id="text_box">
                <label for="name">Search Criteria:</label>
                <input type="text" id="search_items" placeholder="Search" name="name" required>
-               <input type="button" onclick="getSearch()" value="Submit">
+               <input type="button" id="search_button" onclick="getSearch()" value="Submit">
                <br>
            </form>
     </section>

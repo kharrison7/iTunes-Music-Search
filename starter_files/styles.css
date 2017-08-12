@@ -1,23 +1,35 @@
 body {
-  /*background-color: #60d9f1;*/
+  background-color: #D6EAF8;
   width: 100%;
-  background-position: #EBEBEB;
-  border: 1pt solid green;
+  /*background-position: #EBEBEB;*/
+  /*border: 1pt solid green;*/
+}
+
+label{
+  font: Georgian;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 p {
   height: 100px;
   width: 100px;
   background-size: cover;
-  border: 1pt solid red;
+  /*border: 1pt solid red;*/
   /*This centers the image.*/
   display: block;
   margin: auto;
 }
 
 .slot_Class{
-  margin: 10pt;
-  border: 1pt solid green;
+  margin-top: 10pt;
+  padding-top: 0pt;
+  height: 100pt;
+  width: 100pt;
+  /*border: 1pt solid green;*/
+  font: Georgian;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 header{
@@ -38,6 +50,18 @@ header{
   align-content: center;
 }
 
+#search_button{
+   background-color: #34495E;
+   border: 2pt solid #85929E;
+   border-radius: 25%;
+   color: white;
+   padding: 15px 18px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+}
+
 .music-player{
   width: 80%;
 }
@@ -48,11 +72,16 @@ header{
 
 
 #search_items{
-  /*width: 50%;*/
+padding-left: 15px;
+width: 500px;
+height: 35px;
+border: 2px solid #CCD1D4;
+border-radius: 3px;
+margin: 10px;
+font-size: 15px;
 }
 
 input{
-  /*width: 120%;*/
 }
 
 .row_box{
@@ -61,21 +90,13 @@ input{
   align-content: center;
   width: 95%;
   height: 200pt;
-  border: 1pt solid green;
+  /*border: 1pt solid green;*/
 }
-
-/*
-.results{
-  display: inline;
-  height: 800pt;
-  wrap: nowrap;
-  border: 1pt solid green;
-}*/
 
 .unit_both{
   width: 180pt;
   height: 180pt;
   padding: 10pt;
-  border: 1pt solid blue;
+  /*border: 1pt solid blue;*/
   text-align: center;
 }
