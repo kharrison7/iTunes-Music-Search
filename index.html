@@ -21,7 +21,7 @@
 
     <!-- This holds the search and submit button. -->
     <section class="search">
-           <form class="search-form">
+           <form class="search-form" onkeypress="return event.keyCode != 13">
                <div id="text_box">
                <label for="name">Search Criteria:</label>
                <input type="text" id="search_items" placeholder="Search" name="name" required>

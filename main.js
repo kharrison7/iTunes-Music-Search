@@ -16,6 +16,14 @@ console.log("JS On");
 let result_Num = 15;
 // This keeps track of the number of searches.
 let search_Count = 0;
+
+// This makes hitting the 'enter key' call the same function as the submit button.
+ // To prevent the page reloading when pressing enter, it requires: <form class="search-form" onkeypress="return event.keyCode != 13">
+document.getElementById('search_items').onkeydown = function(event) {
+  if (event.keyCode === 13) {
+      getSearch();
+  }
+}
 // This obtains info form the search form and sends it to a function to fetch the data.
 function getSearch(){
   // This collects raw input from the submission field.
