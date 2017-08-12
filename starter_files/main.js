@@ -69,7 +69,6 @@ fetch(url)
         for (let i = 0; i < result_Num; i++){
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
-            console.log("1: " + image_Thumb);
             let slot = document.getElementById('slot' +i);
             slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
             // This puts in 'No Image Found' if the image is absent.
@@ -78,11 +77,11 @@ fetch(url)
               a = "https://www.shearwater.com/wp-content/plugins/lightbox/images/No-image-found.jpg"
             }
             image_Thumb.setAttribute("style", "background-image: url("+a+");");
-            image_Thumb.addEventListener('click', play_Music);
+            let unit_Value = document.getElementById('unit_' +i);
+            unit_Value.addEventListener('click', play_Music);
             // This does audio stuff.
             aud[i] = new Audio(result.previewUrl);
             }
-
 
         // This sends the first song returned before any song is clicked.
         let play_Song = document.getElementById('music_Here');
@@ -92,8 +91,15 @@ fetch(url)
       // This sends the song to the audio element to be played.
       function play_Music(){
           console.log("play_Music Clicked: " + this.id);
-          console.log("aud_Number: " + this.id.slice(-1));
-          let aud_Number = this.id.slice(-1);
+          let aud_Number = 0;
+          if ( this.id.length === 6 ){
+            aud_Number = this.id.slice(-1);
+            console.log("aud_Number: " + this.id.slice(-1));
+          }
+          else {
+            aud_Number = this.id.slice(-2);
+            console.log("aud_Number: " + this.id.slice(-2));
+          }
           let play_Song = document.getElementById('music_Here');
           play_Song.src=aud[aud_Number].src;
           play_Song.load();
