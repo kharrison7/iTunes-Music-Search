@@ -1,5 +1,8 @@
 body {
-  background-color: #60d9f1;
+  /*background-color: #60d9f1;*/
+  width: 100%;
+  background-position: #EBEBEB;
+  border: 1pt solid green;
 }
 
 p {
@@ -7,9 +10,72 @@ p {
   width: 100px;
   background-size: cover;
   border: 1pt solid red;
+  /*This centers the image.*/
+  display: block;
+  margin: auto;
 }
 
 .slot_Class{
   margin: 10pt;
   border: 1pt solid green;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.player{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.music-player{
+  width: 80%;
+}
+
+.text_box{
+  width: 80%;
+}
+
+
+#search_items{
+  /*width: 50%;*/
+}
+
+input{
+  /*width: 120%;*/
+}
+
+.row_box{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 95%;
+  height: 200pt;
+  border: 1pt solid green;
+}
+
+/*
+.results{
+  display: inline;
+  height: 800pt;
+  wrap: nowrap;
+  border: 1pt solid green;
+}*/
+
+.unit_both{
+  width: 180pt;
+  height: 180pt;
+  padding: 10pt;
+  border: 1pt solid blue;
+  text-align: center;
 }
