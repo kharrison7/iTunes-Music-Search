@@ -27,7 +27,7 @@ label{
 .song {
   color: #BB8FCE;
   font-family: "Armata", sans-serif, times, Georgian;
-  font-size: 14px;
+  font-size: 16px;
   text-outline: 2px 2px #ECF0F1;
 }
 
@@ -35,7 +35,6 @@ label{
   color: #1A5276;
   font-family: "Armata", sans-serif, times, Georgian;
   font-size: 18px;
-
 }
 
 .slot_Class{
