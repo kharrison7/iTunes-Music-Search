@@ -46,7 +46,6 @@ function getSearch(){
     space_Count = 1;
     refined_search_input[0] = raw_search_input;
   }
-
 // This creates a url to be a fetch target.
 let x = 'https://itunes.apple.com/search?term=';
 let z = "&entity=song";
@@ -79,7 +78,7 @@ fetch(url)
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
             slot.innerHTML = `<p class="song">${result.trackName}</p>
-                              <p class="artist"><a onclick="getSearch()" id=some+${i}>${result.artistName}</a></p>`;
+                              <p class="artist"><a id=${result.artistName}${i}>${result.artistName}</a></p>`;
             // This puts in 'No Image Found' if the image is absent.
             let a = result.artworkUrl100;
             if( a === '' ){
