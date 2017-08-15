@@ -78,7 +78,8 @@ fetch(url)
             let result = data.results[i];
             let image_Thumb = document.getElementById('fill' +i);
             let slot = document.getElementById('slot' +i);
-            slot.innerHTML = "Song: " + result.trackName + `\n\r <br> Artist(s): <a>${result.artistName}</a>`;
+            slot.innerHTML = `<p class="song">Song: ${result.trackName}</p>
+                              <p class="artist">Artist(s): <a>${result.artistName}</a></p>`;
             // This puts in 'No Image Found' if the image is absent.
             let a = result.artworkUrl100;
             if( a === '' ){

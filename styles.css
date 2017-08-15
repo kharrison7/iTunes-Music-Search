@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Armata);
+
 body {
   background-color: #D6EAF8;
   width: 100%;
@@ -11,14 +13,29 @@ label{
   font-weight: bold;
 }
 
-p {
+.music_image {
   height: 100px;
   width: 100px;
   background-size: cover;
+  border: 0;
   /*border: 1pt solid red;*/
   /*This centers the image.*/
   display: block;
   margin: auto;
+}
+
+.song {
+  color: #BB8FCE;
+  font-family: "Armata", sans-serif, times, Georgian;
+  font-size: 14px;
+  text-outline: 2px 2px #ECF0F1;
+}
+
+.artist {
+  color: #1A5276;
+  font-family: "Armata", sans-serif, times, Georgian;
+  font-size: 18px;
+
 }
 
 .slot_Class{
